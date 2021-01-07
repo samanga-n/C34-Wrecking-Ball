@@ -17,9 +17,9 @@ class Throw{
 		World.add(world,this.throw)
 	}
 
-	// attach(body){
-	// 	this.throw.bodyA=body;
-	// }
+	attach(body){
+		this.throw.bodyA=body;
+	}
 
 	fly()
 	{

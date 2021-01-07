@@ -116,3 +116,8 @@ function mouseDragged(){
 function mouseReleased(){
     throwObject.fly();
   }
+  function keyPressed(){
+    if(keyCode === 32){
+        throwObject.attach(this.ball);
+    }
+  }
