@@ -5,8 +5,8 @@ class Throw{
 		var options={ 
             bodyA:bodyA,			 
 			pointB:pointB, 
-			stiffness:0.04, 
-			length:1
+			stiffness:1.5, 
+			length:200
 			
 		}
 		
@@ -33,7 +33,7 @@ class Throw{
 			var pointA=this.throw.bodyA.position;
 			var pointB=this.pointB
 
-            strokeWeight(2);
+            strokeWeight(3);
             stroke('white');		
 			line(pointA.x,pointA.y,pointB.x,pointB.y);
 		}

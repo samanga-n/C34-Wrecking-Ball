@@ -4,7 +4,7 @@ const Bodies=Matter.Bodies;
 const Constraint=Matter.Constraint;
 
 function preload(){
- polygon = loadImage("polygon.png");
+ 
 }
 
 function setup() {
@@ -12,54 +12,44 @@ function setup() {
     engine=Engine.create();
     world=engine.world;
      
-    ground1= new Ground(570,570,300,15);
-    ground2= new Ground(1100,300,300,15);
+    ground= new Ground(750,480,1500,15);
    
-    ball = Bodies.circle(172,321,20);
-    World.add(world,ball);
-    throwObject = new Throw(this.ball,{x:168, y:321});
-    block7= new Block(660,550,30,40);
-    block6= new Block(630,550,30,40);
-    block5= new Block(600,550,30,40);
-    block4= new Block(570,550,30,40);
-    block3= new Block(540,550,30,40);
-    block2= new Block(510,550,30,40);
-    block1= new Block(480,550,30,40);
-
-    block1a= new Block(510,504,30,40);  //670,590
-    block1b= new Block(540,504,30,40);
-    block1c= new Block(570,504,30,40);
-    block1d= new Block(600,504,30,40);
-    block1e= new Block(630,504,30,40);
+    ball = new ball(160,320,40,40);
+    throwObject = new Throw(ball.body,{x:480, y:51});
    
-    block11a= new Block(540,464,30,40);
-    block11b= new Block(570,459,30,40);
-    block11c= new Block(600,464,30,40);
+    box1a= new Box(695,460,50,50);
+    box1b= new Box(695,410,50,50);
+    box1c= new Box(695,360,50,50);
+    box1d= new Box(695,310,50,50);
+    box1e= new Box(695,260,50,50);
+    box1f= new Box(695,210,50,50);
+    box1g= new Box(695,160,50,50);
+    box1h= new Box(695,110,50,50);
 
-    block111a= new Block(570,430,30,40);
+    box2a= new Box(775,460,50,50);
+    box2b= new Box(775,410,50,50);
+    box2c= new Box(775,360,50,50);
+    box2d= new Box(775,310,50,50);
+    box2e= new Box(775,260,50,50);
+    box2f= new Box(775,210,50,50);
+    box2g= new Box(775,160,50,50);
+    box2h= new Box(775,110,50,50);
 
-    blocka= new Block(1040,272,30,40);
-    blockb= new Block(1070,272,30,40);
-    blockc= new Block(1100,272,30,40);
-    blockd= new Block(1130,272,30,40);
-    blocke= new Block(1160,272,30,40);
-
-    blocka1= new Block(1070,232,30,40);
-    blockb1= new Block(1100,232,30,40);
-    blockc1= new Block(1130,232,30,40);
-
-    blocka2= new Block(1100,192,30,40);
-    // blockb2= new Block(1130,192,30,40);
+    box3a= new Box(860,460,50,50);
+    box3b= new Box(860,410,50,50);
+    box3c= new Box(860,360,50,50);
+    box3d= new Box(860,310,50,50);
+    box3e= new Box(860,260,50,50);
+    box3f= new Box(860,210,50,50);
+   
     
     
 }
 
 function draw() {
-    background(0,0,0);  
+    background(207, 247, 244);  
     Engine.update(engine);
-    imageMode(CENTER);
-    image(polygon,ball.position.x,ball.position.y,40,40);
-    
+   
     // mouseDragged();
     // mouseReleased();
     push();
@@ -70,54 +60,49 @@ function draw() {
     text("Drag the hexagon and Release it",150,90);
     pop();
 
-    fill("white");
+    fill("black");
     text(mouseX+","+mouseY,mouseX,mouseY);
-    ground1.display();
-    ground2.display();
+    ground.display();
 
+    box1a.display();
+    box1b.display();
+    box1c.display();
+    box1d.display();
+    box1e.display();
+    box1f.display();
+    box1g.display();
+    box1h.display();
+
+    box2a.display();
+    box2b.display();
+    box2c.display();
+    box2d.display();
+    box2e.display();
+    box2f.display();
+    box2g.display();
+    box2h.display();
+
+    box3a.display();
+    box3b.display();
+    box3c.display();
+    box3d.display();
+    box3e.display();
+    box3f.display();
+
+    ball.display();
     throwObject.display();
+ 
     
-    fill(70, 187, 226)
-    block7.display();
-    block6.display();
-    block5.display();
-    block4.display();
-    block3.display();
-    block2.display();
-    block1.display();
-    blocka.display();
-    blockb.display();
-    blockc.display();
-    blockd.display();
-    blocke.display();
-    fill(234, 75, 162);
-    block1a.display();
-    block1b.display();
-    block1c.display();
-    block1d.display();
-    block1e.display();
-    blocka1.display();
-    blockb1.display();
-    blockc1.display();
-    fill(242, 194, 99);
-    block11a.display();
-    block11b.display();
-    block11c.display();
-    blocka2.display();
-    // blockb2.display();
-    // blockc2.display();
-    fill(204, 175, 175);
-    block111a.display();
-
+    
 }  
 function mouseDragged(){
-    Matter.Body.setPosition(this.ball,{x:mouseX,y:mouseY});
+    Matter.Body.setPosition(ball.body,{x:mouseX,y:mouseY});
   }
-function mouseReleased(){
-    throwObject.fly();
-  }
-  function keyPressed(){
-    if(keyCode === 32){
-        throwObject.attach(this.ball);
-    }
-  }
+// function mouseReleased(){
+//     throwObject.fly();
+//   }
+//   function keyPressed(){
+//     if(keyCode === 32){
+//         throwObject.attach(this.ball);
+//     }
+//   }
